@@ -2,6 +2,8 @@ scripts:
   lint: deno fmt --check .
   start:
     cmd: index.ts
+    env:
+      PORT: '5000'
     allow:
       - net
       - env
