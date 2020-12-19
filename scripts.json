@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "start": { "cmd": "index.ts", "allow": ["write", "net", "read"], "unstable": true }
-  }
-}

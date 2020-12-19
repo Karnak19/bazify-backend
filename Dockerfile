@@ -6,6 +6,6 @@ WORKDIR /app
 
 ADD . /app
 
-RUN deno cache index.ts
+RUN deno install --allow-read --allow-run --allow-write --allow-net -f -q --unstable https://deno.land/x/denon/denon.ts
 
-CMD ["run", "--allow-net","--allow-write", "--allow-read", "--unstable" "index.ts"]
+CMD ["denon", "start"]

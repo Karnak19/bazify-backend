@@ -14,7 +14,7 @@ router.post('/songs', upload('uploads', { extensions: ['mp3'] }), async (ctx: an
     await move(url, `./songs/${filename}`);
     await emptyDir('./uploads');
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
