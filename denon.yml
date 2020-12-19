@@ -1,7 +1,7 @@
 scripts:
   lint: deno fmt --check .
   start:
-    cmd: index.ts
+    cmd: app/index.ts
     allow:
       - net
       - env
