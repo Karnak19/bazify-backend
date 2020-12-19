@@ -3,7 +3,7 @@ scripts:
   start:
     cmd: index.ts
     env:
-      PORT: '5000'
+      PORT: '5050'
     allow:
       - net
       - env
@@ -13,7 +13,7 @@ scripts:
   dev:
     cmd: index.ts
     env:
-      PORT: '8000'
+      PORT: '5051'
     allow:
       - net
       - env
