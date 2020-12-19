@@ -6,7 +6,7 @@ scripts:
       - net
       - env
       - read
-      -write
+      - write
     unstable: true
   dev:
     cmd: index.ts
