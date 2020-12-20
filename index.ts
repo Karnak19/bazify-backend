@@ -1,10 +1,11 @@
-import { Application } from './deps.ts';
+import { Application, oakCors } from './deps.ts';
 
 import router from './song.ts';
 
 const port: number = Number(Deno.env.get('PORT')) || 80;
 const app = new Application();
 
+app.use(oakCors());
 app.use(async (ctx, next) => {
   await next();
   const rt = ctx.response.headers.get('X-Response-Time');
