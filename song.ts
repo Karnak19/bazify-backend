@@ -1,4 +1,4 @@
-import { Router, upload, move, emptyDir } from './deps.ts';
+import { Router, upload, emptyDirSync, moveSync } from './deps.ts';
 
 const router = new Router();
 
@@ -7,14 +7,19 @@ router.post('/songs', upload('uploads', { extensions: ['mp3'] }), async (ctx: an
   try {
     const { url, filename } = ctx.uploadedFiles.file;
 
+    moveSync(url, `./songs/${filename}`);
+    emptyDirSync('./uploads');
     response.status = 201;
     response.body = {
       url: `/songs/${filename}`,
     };
-    await move(url, `./songs/${filename}`);
-    await emptyDir('./uploads');
   } catch (error) {
     console.error(error);
+
+    response.status = 400;
+    response.body = {
+      msg: error.message,
+    };
   }
 });
 
