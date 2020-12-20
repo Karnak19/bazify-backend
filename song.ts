@@ -23,4 +23,20 @@ router.post('/songs', upload('uploads', { extensions: ['mp3'] }), async (ctx: an
   }
 });
 
+router.post('/songs/test', async ({ request, response }) => {
+  try {
+    const data = await request.body().value;
+
+    response.status = 201;
+    response.body = { ...data };
+  } catch (error) {
+    console.error(error);
+
+    response.status = 400;
+    response.body = {
+      msg: error.message,
+    };
+  }
+});
+
 export default router;
