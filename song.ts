@@ -5,8 +5,6 @@ const router = new Router();
 router.post('/songs', upload('uploads', { extensions: ['mp3'] }), async (ctx: any) => {
   const { response } = ctx;
   try {
-    console.log(ctx.uploadedFiles);
-
     const { url, filename } = ctx.uploadedFiles.file;
 
     moveSync(url, `./songs/${filename}`);
